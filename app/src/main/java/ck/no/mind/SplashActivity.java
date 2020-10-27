@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                initiateMainActivityAndFinish();
+
             }
 
             @Override
@@ -44,7 +44,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationRepeat(Animator animator) {
-
+                initiateMainActivityAndFinish();
             }
         });
     }
