@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mind+</string>
+    <string name="no_support_heartbeat">Unfortunately, your device does not support heart rate sensor.</string>
+    <string name="information_for_finger">Please, touch the sensor with your finger as in the picture.</string>
 </resources>
