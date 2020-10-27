@@ -7,16 +7,16 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieDrawable;
 
 public class SplashActivity extends AppCompatActivity {
 
     LottieAnimationView intro;
-    private static float SPEED = 0.8F;
+    private static float SPEED = 0.6F;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
         initiateAnimation();
     }
 
@@ -34,7 +34,7 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animator animator) {
-
+                initiateMainActivityAndFinish();
             }
 
             @Override
@@ -44,7 +44,6 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationRepeat(Animator animator) {
-                initiateMainActivityAndFinish();
             }
         });
     }
