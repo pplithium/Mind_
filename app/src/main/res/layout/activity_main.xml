@@ -1,16 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:layout_width="wrap_content"
+    android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="launchHearthMonitor!"
-        android:layout_centerInParent="true"
-        android:onClick="launchHearthMonitor" />
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"
+            >
+            <ImageView
+                android:layout_width="1000dp"
+                android:layout_height="200dp"
+                android:id="@+id/main"
+                android:adjustViewBounds="true"
+                android:src="@drawable/main"
+                />
+            <!-- Text inside ImageView
+            <TextView
+                android:id="@+id/text_on_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/main"
+                android:layout_alignRight="@id/main"
+                android:layout_centerVertical="true"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:text="Test text"
+                android:textColor="@color/blue_500" />
+-->
+        </RelativeLayout>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recommendations_layout"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:onClick="launchFoodActivity"
+                    android:layout_margin="2dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/calender_img"
+                        android:adjustViewBounds="true"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/calendar"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/calender_img"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_alignLeft="@id/calender_img"
+                        android:layout_alignRight="@id/calender_img"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="My Calendar"
+                        android:textColor="@color/blue_500"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:onClick="launchDrinkActivity"
+                    android:layout_margin="2dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/analysis_img" android:adjustViewBounds="true"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/analyze"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/analysis_img"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_alignLeft="@id/analysis_img"
+                        android:layout_alignRight="@id/analysis_img"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="My Analysis"
+                        android:textColor="@color/blue_500"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:onClick="launchHearthMonitor"
+                    android:layout_margin="2dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/heart_measurement_img"
+                        android:adjustViewBounds="true"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/heart"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/heart_measurement_img"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_alignLeft="@id/heart_measurement_img"
+                        android:layout_alignRight="@id/heart_measurement_img"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="My Heart"
+                        android:textColor="@color/blue_500"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:onClick="launchDrinkActivity"
+                    android:layout_margin="2dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/find_psy_img" android:adjustViewBounds="true"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:src="@drawable/psycologist"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/find_psy_img"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_alignLeft="@id/find_psy_img"
+                        android:layout_alignRight="@id/find_psy_img"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="Find Help"
+                        android:textColor="@color/blue_500"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

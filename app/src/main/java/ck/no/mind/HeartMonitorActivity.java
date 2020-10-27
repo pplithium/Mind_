@@ -2,6 +2,7 @@ package ck.no.mind;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -11,6 +12,7 @@ import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,11 +50,23 @@ public class HeartMonitorActivity extends AppCompatActivity implements SensorEve
         sensorManager.registerListener(this, heartSensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
+    public void launchMainActivity(View v) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     private void setupViews() {
         // supported or not
         if (heartSensor == null) {
             TextView notSupported = findViewById(R.id.no_support);
             notSupported.setVisibility(View.VISIBLE);
+
+            Button button = findViewById(R.id.back_button);
+            button.setVisibility(View.VISIBLE);
+
+            measurementProgress = findViewById(R.id.heart_measurement_progress);
+            measurementProgress.setAnimation(R.raw.heart_measurement_progress);
         } else {
             // progress bar for measurement
             measurementProgress = findViewById(R.id.heart_measurement_progress);
