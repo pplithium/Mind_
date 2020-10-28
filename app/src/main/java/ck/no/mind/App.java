@@ -2,6 +2,7 @@ package ck.no.mind;
 
 import android.app.Application;
 import android.content.Context;
+import android.widget.Toast;
 
 public class App extends Application {
 
@@ -15,5 +16,9 @@ public class App extends Application {
     public void onCreate() {
         instance = this;
         super.onCreate();
+    }
+
+    public static void notImplementedCodeToast() {
+        Toast.makeText(instance,"This code is not yet implemented.",Toast.LENGTH_SHORT).show();
     }
 }

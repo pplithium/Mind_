@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import ck.no.mind.App;
 import ck.no.mind.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -66,9 +67,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void launchPsycologistsActivity(View v) {
+        Intent intent = new Intent(this, PsycologistsActivity.class);
+        startActivity(intent);
+    }
+
     public void launchHearthMonitor(View v) {
         Intent intent = new Intent(this, HeartMonitorActivity.class);
         startActivity(intent);
+    }
+    public void launchCalendarActivity(View v) {
+        App.notImplementedCodeToast();
+    }
+    public void launchAnalysisActivity(View v) {
+        App.notImplementedCodeToast();
+    }
+    public void launchTipsActivity(View v) {
+        App.notImplementedCodeToast();
+    }
+    public void launchSleepActivity(View v) {
+        App.notImplementedCodeToast();
+    }
+    public void launchTasksActivity(View v) {
+        App.notImplementedCodeToast();
+    }
+    public void launchContactActivity(View v) {
+        App.notImplementedCodeToast();
+    }
+    public void launchFriendsActivity(View v) {
+        App.notImplementedCodeToast();
     }
 
     public void launchEventsActivity(View v) {
