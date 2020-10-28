@@ -1,16 +1,13 @@
-package ck.no.mind;
+package ck.no.mind.activities;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.media.Image;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -19,6 +16,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import com.airbnb.lottie.LottieAnimationView;
+
+import ck.no.mind.R;
 
 public class HeartMonitorActivity extends AppCompatActivity implements SensorEventListener {
     static Sensor heartSensor;

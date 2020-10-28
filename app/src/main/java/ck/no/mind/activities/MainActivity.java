@@ -1,4 +1,4 @@
-package ck.no.mind;
+package ck.no.mind.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import ck.no.mind.R;
+import ck.no.mind.activities.HeartMonitorActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -64,9 +67,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     public void launchHearthMonitor(View v) {
         Intent intent = new Intent(this, HeartMonitorActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchEventsActivity(View v) {
+        Intent intent = new Intent(this, EventActivity.class);
         startActivity(intent);
     }
 }

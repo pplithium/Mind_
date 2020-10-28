@@ -1,11 +1,13 @@
-package ck.no.mind;
+package ck.no.mind.activities;
 
 import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.LottieDrawable;
+
+import ck.no.mind.R;
+import ck.no.mind.activities.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
     LottieAnimationView intro;
