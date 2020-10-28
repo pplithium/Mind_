@@ -6,9 +6,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import ck.no.mind.App;
 import ck.no.mind.R;
 
@@ -27,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void animateBackground() {
         final ImageView img = (ImageView) findViewById(R.id.main);
-        final Animation aniSlideZoomOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out_background);
-        final Animation aniSlideZoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in_background);
+        final Animation aniSlideZoomOut =
+                AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out_background);
+        final Animation aniSlideZoomIn =
+                AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in_background);
         img.startAnimation(aniSlideZoomOut);
 
         aniSlideZoomIn.setAnimationListener(new Animation.AnimationListener() {
@@ -39,15 +39,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 img.startAnimation(aniSlideZoomOut);
-
             }
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-
             }
         });
-
 
         aniSlideZoomOut.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -61,10 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationRepeat(Animation animation) {
-
             }
         });
-
     }
 
     public void launchPsycologistsActivity(View v) {

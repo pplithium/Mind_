@@ -5,7 +5,6 @@ import android.content.Context;
 import android.widget.Toast;
 
 public class App extends Application {
-
     private static App instance;
 
     public static Context getContext() {
@@ -19,6 +18,6 @@ public class App extends Application {
     }
 
     public static void notImplementedCodeToast() {
-        Toast.makeText(instance,"This code is not yet implemented.",Toast.LENGTH_SHORT).show();
+        Toast.makeText(instance, "This code is not yet implemented.", Toast.LENGTH_SHORT).show();
     }
 }
