@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ck.no.mind.R;
-import ck.no.mind.activities.HeartMonitorActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -26,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void animateBackground() {
-        final ImageView img = (ImageView)findViewById(R.id.main);
-        final Animation aniSlideZoomOut = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_out_background);
-        final Animation aniSlideZoomIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in_background);
+        final ImageView img = (ImageView) findViewById(R.id.main);
+        final Animation aniSlideZoomOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_out_background);
+        final Animation aniSlideZoomIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.zoom_in_background);
         img.startAnimation(aniSlideZoomOut);
 
         aniSlideZoomIn.setAnimationListener(new Animation.AnimationListener() {

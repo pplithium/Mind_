@@ -13,15 +13,22 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+
 import com.airbnb.lottie.LottieAnimationView;
 
 import ck.no.mind.R;
 
 public class HeartMonitorActivity extends AppCompatActivity implements SensorEventListener {
+    final static int TOTAL_MEASUREMENT_COUNT = 1;
     static Sensor heartSensor;
     static SensorManager sensorManager;
+    static SensorEventListener sensorEventListener;
+    // Sensor related code
+    static float HEART_RATE_TOTAL = 0;
+    static float HEART_RATE_COUNT = 0;
     LottieAnimationView measurementProgress;
     TextView informationForSensor;
     ImageView informationImageForSensor;
@@ -29,7 +36,7 @@ public class HeartMonitorActivity extends AppCompatActivity implements SensorEve
     ImageView reportButton;
     ImageView resetButton;
     TextView heartRate;
-    static SensorEventListener sensorEventListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sensorEventListener = this;
@@ -123,13 +130,8 @@ public class HeartMonitorActivity extends AppCompatActivity implements SensorEve
 
     private void requestPermissionAndWait() {
         ActivityCompat.requestPermissions(
-                HeartMonitorActivity.this, new String[] {Manifest.permission.BODY_SENSORS}, 1);
+                HeartMonitorActivity.this, new String[]{Manifest.permission.BODY_SENSORS}, 1);
     }
-
-    // Sensor related code
-    static float HEART_RATE_TOTAL = 0;
-    static float HEART_RATE_COUNT = 0;
-    final static int TOTAL_MEASUREMENT_COUNT = 1;
 
     // watch HEART_RATE_COUNT
     private void setupWatcherThread() {

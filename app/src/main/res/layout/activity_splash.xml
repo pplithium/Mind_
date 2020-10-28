@@ -7,26 +7,25 @@
     tools:context=".activities.SplashActivity">
 
 
+    <TextView
+        android:id="@+id/intro_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/intro_anim"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:textColor="@color/blue_500"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/intro_anim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerInside"
-        app:lottie_repeatCount="0"
         app:lottie_autoPlay="true"
         app:lottie_fileName="@raw/intro"
-        app:lottie_loop="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/intro_anim"
-        android:textStyle="bold"
-        android:textColor="@color/blue_500"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/intro_text"
-        android:textSize="30dp"
-        android:text="@string/app_name" />
+        app:lottie_loop="true"
+        app:lottie_repeatCount="0" />
 
 </RelativeLayout>

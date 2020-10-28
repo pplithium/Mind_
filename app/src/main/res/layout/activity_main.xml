@@ -1,29 +1,390 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_gravity="center_horizontal"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:layout_gravity="center_horizontal">
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_gravity="center_horizontal"
-        >
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/recommendations_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchFoodActivity">
+
+                    <ImageView
+                        android:id="@+id/calender_img"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/calendar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/calender_img"
+                        android:layout_alignLeft="@id/calender_img"
+                        android:layout_alignRight="@id/calender_img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="My Calendar"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchDrinkActivity">
+
+                    <ImageView
+                        android:id="@+id/analysis_img"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/analyze" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/analysis_img"
+                        android:layout_alignLeft="@id/analysis_img"
+                        android:layout_alignRight="@id/analysis_img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="My Analysis"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchHearthMonitor">
+
+                    <ImageView
+                        android:id="@+id/heart_measurement_img"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/heart" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/heart_measurement_img"
+                        android:layout_alignLeft="@id/heart_measurement_img"
+                        android:layout_alignRight="@id/heart_measurement_img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="My Heart"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchDrinkActivity">
+
+                    <ImageView
+                        android:id="@+id/find_psy_img"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/psycologist" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/find_psy_img"
+                        android:layout_alignLeft="@id/find_psy_img"
+                        android:layout_alignRight="@id/find_psy_img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="Find Help"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchEventsActivity">
+
+                    <ImageView
+                        android:id="@+id/events_img"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/event" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/events_img"
+                        android:layout_alignLeft="@id/events_img"
+                        android:layout_alignRight="@id/events_img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="Events Around"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchDrinkActivity">
+
+                    <ImageView
+                        android:id="@+id/tips_img"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tips" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tips_img"
+                        android:layout_alignLeft="@id/tips_img"
+                        android:layout_alignRight="@id/tips_img"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="Tips and Suggestions"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchHearthMonitor">
+
+                    <ImageView
+                        android:id="@+id/find_friends"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/friends" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/find_friends"
+                        android:layout_alignLeft="@id/find_friends"
+                        android:layout_alignRight="@id/find_friends"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="Find Friends For Activities"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchDrinkActivity">
+
+                    <ImageView
+                        android:id="@+id/track_sleep"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/sleep" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/track_sleep"
+                        android:layout_alignLeft="@id/track_sleep"
+                        android:layout_alignRight="@id/track_sleep"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="Track My Sleep"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchHearthMonitor">
+
+                    <ImageView
+                        android:id="@+id/my_tasks"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/tasks" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/my_tasks"
+                        android:layout_alignLeft="@id/my_tasks"
+                        android:layout_alignRight="@id/my_tasks"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="My Tasks"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="2dp"
+                    android:layout_weight="1"
+                    android:onClick="launchDrinkActivity">
+
+                    <ImageView
+                        android:id="@+id/contact_us"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_centerHorizontal="true"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/contact" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/contact_us"
+                        android:layout_alignLeft="@id/contact_us"
+                        android:layout_alignRight="@id/contact_us"
+                        android:layout_centerHorizontal="true"
+                        android:layout_margin="2dp"
+                        android:layout_marginLeft="20dp"
+                        android:gravity="center"
+                        android:text="Contact Us"
+                        android:textColor="@color/blue_500"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:layout_margin="2dp"
-            >
+            android:layout_margin="2dp">
+
             <ImageView
+                android:id="@+id/main"
                 android:layout_width="1000dp"
                 android:layout_height="200dp"
-                android:id="@+id/main"
                 android:adjustViewBounds="true"
-                android:src="@drawable/main"
-                />
+                android:src="@drawable/main" />
             <!-- Text inside ImageView
             <TextView
                 android:id="@+id/text_on_background"
@@ -40,362 +401,5 @@
                 android:textColor="@color/blue_500" />
 -->
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_marginTop="30dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/recommendations_layout"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RelativeLayout
-                    android:onClick="launchFoodActivity"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/calender_img"
-                        android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/calendar"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/calender_img"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/calender_img"
-                        android:layout_alignRight="@id/calender_img"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="My Calendar"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:onClick="launchDrinkActivity"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/analysis_img" android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/analyze"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/analysis_img"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/analysis_img"
-                        android:layout_alignRight="@id/analysis_img"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="My Analysis"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchHearthMonitor"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/heart_measurement_img"
-                        android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/heart"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/heart_measurement_img"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/heart_measurement_img"
-                        android:layout_alignRight="@id/heart_measurement_img"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="My Heart"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchDrinkActivity"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/find_psy_img" android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/psycologist"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/find_psy_img"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/find_psy_img"
-                        android:layout_alignRight="@id/find_psy_img"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Find Help"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchEventsActivity"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/events_img"
-                        android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/event"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/events_img"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/events_img"
-                        android:layout_alignRight="@id/events_img"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Events Around"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchDrinkActivity"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/tips_img" android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/tips"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/tips_img"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/tips_img"
-                        android:layout_alignRight="@id/tips_img"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Tips and Suggestions"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchHearthMonitor"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/find_friends"
-                        android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/friends"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/find_friends"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/find_friends"
-                        android:layout_alignRight="@id/find_friends"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Find Friends For Activities"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchDrinkActivity"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/track_sleep" android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/sleep"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/track_sleep"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/track_sleep"
-                        android:layout_alignRight="@id/track_sleep"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Track My Sleep"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchHearthMonitor"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/my_tasks"
-                        android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/tasks"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/my_tasks"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/my_tasks"
-                        android:layout_alignRight="@id/my_tasks"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="My Tasks"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_centerHorizontal="true"
-                    android:onClick="launchDrinkActivity"
-                    android:layout_margin="2dp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="0dp"
-                    android:layout_weight="1">
-
-                    <ImageView
-                        android:layout_centerHorizontal="true"
-                        android:id="@+id/contact_us" android:adjustViewBounds="true"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:src="@drawable/contact"
-                        />
-                    <TextView
-                        android:layout_centerHorizontal="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/contact_us"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_alignLeft="@id/contact_us"
-                        android:layout_alignRight="@id/contact_us"
-                        android:gravity="center"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Contact Us"
-                        android:textColor="@color/blue_500"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-        </LinearLayout>
     </LinearLayout>
 </ScrollView>
