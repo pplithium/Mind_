@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:textSize="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="What made you feel that?\n(Optional)"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:textSize="14dp"
+        android:id="@+id/details_text"
+        android:layout_below="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Think about what you were doing at that time. For example: Did you meet a friend, watched a move, went to skiing?"
+        />
+
+    <EditText
+        android:layout_margin="20dp"
+        android:id="@+id/details_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/details_text"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_below="@+id/details_edittext"
+        android:id="@+id/all_ok_button"
+        android:layout_margin="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

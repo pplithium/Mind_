@@ -28,134 +28,218 @@
         android:id="@+id/finish_button"
         android:layout_alignParentRight="true"/>
 
-    <LinearLayout
+    <ScrollView
         android:layout_below="@+id/finish_button"
-        android:id="@+id/happiness_linear"
-        android:padding="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:text="Happiness" />
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/happiness_relative"
 
-        <RatingBar
-            android:id="@+id/rating_happiness"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:numStars="5" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
 
-    </LinearLayout>
+                    android:id="@+id/happiness_linear"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_below="@+id/happiness_linear"
-        android:id="@+id/excitement_linear"
-        android:padding="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:text="Happiness" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:text="Excitement" />
+                    <RatingBar
+                        android:id="@+id/rating_happiness"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:numStars="5" />
 
-        <RatingBar
-            android:id="@+id/rating_excitement"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:numStars="5" />
+                </LinearLayout>
 
-    </LinearLayout>
+                <Button
+                    android:id="@+id/happiness_button_details"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/happiness_linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Details"/>
+            </RelativeLayout>
 
-    <LinearLayout
-        android:layout_below="@+id/excitement_linear"
-        android:id="@+id/sad_linear"
-        android:padding="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:text="Sad              " />
+            <RelativeLayout
+                android:id="@+id/excitement_relative"
+                android:layout_below="@+id/happiness_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/excitement_linear"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        <RatingBar
-            android:id="@+id/rating_sad"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:numStars="5" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:text="Excitement" />
 
-    </LinearLayout>
+                    <RatingBar
+                        android:id="@+id/rating_excitement"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:numStars="5" />
 
-    <LinearLayout
-        android:layout_below="@+id/sad_linear"
-        android:id="@+id/anx_linear"
-        android:padding="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                </LinearLayout>
+                <Button
+                    android:id="@+id/ex_button_details"
+                    android:layout_marginRight="10dp"
+                        android:layout_below="@+id/excitement_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="Details"/>
+            </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:text="Anxious      " />
+            <RelativeLayout
+                android:id="@+id/sad_relative"
+                android:layout_below="@+id/excitement_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <RatingBar
-            android:id="@+id/rating_anxious"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:numStars="5" />
+                <LinearLayout
+                    android:id="@+id/sad_linear"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:text="Sad              " />
 
-    <LinearLayout
-        android:layout_below="@+id/anx_linear"
-        android:id="@+id/angry_linear"
-        android:padding="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                    <RatingBar
+                        android:id="@+id/rating_sad"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:numStars="5" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:text="Angry          " />
+                </LinearLayout>
 
-        <RatingBar
-            android:id="@+id/rating_angry"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/blue_500"
-            android:numStars="5" />
+                <Button
+                    android:id="@+id/sad_button_details"
+                    android:layout_marginRight="10dp"
+                        android:layout_below="@+id/sad_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="Details"/>
+            </RelativeLayout>
 
-    </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/anx_relative"
+                android:layout_below="@+id/sad_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/anx_linear"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:text="Anxious      " />
+
+                    <RatingBar
+                        android:id="@+id/rating_anxious"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:numStars="5" />
+
+                </LinearLayout>
+                <Button
+                    android:id="@+id/anx_button_details"
+                    android:layout_marginRight="10dp"
+                        android:layout_below="@+id/anx_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="Details"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/angry_relative"
+                android:layout_below="@+id/anx_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/angry_linear"
+                    android:padding="20dp"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:text="Angry          " />
+
+                    <RatingBar
+                        android:id="@+id/rating_angry"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue_500"
+                        android:numStars="5" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/ang_button_details"
+                    android:layout_marginRight="10dp"
+                    android:layout_below="@+id/angry_linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Details"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>
