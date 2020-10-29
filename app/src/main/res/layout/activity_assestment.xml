@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AssesmentActivity">
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="Problem fetching the date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue_500"
+        android:id="@+id/selected_date"
+        android:layout_alignParentLeft="true"/>
+
+    <ImageView
+        android:layout_marginRight="20dp"
+        android:onClick="launchSecondAssestmentActivity"
+        android:layout_marginTop="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/next"
+        android:id="@+id/next_button"
+        android:layout_alignParentRight="true"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/next_button"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_8"
+
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="08:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour8"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:hint="How did you feel?"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_9"
+                android:layout_below="@+id/linear_8"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="09:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour9"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_10"
+                android:layout_below="@+id/linear_9"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="10:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour10"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_11"
+                android:layout_below="@+id/linear_10"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="11:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour11"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_12"
+                android:layout_below="@+id/linear_11"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="12:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour12"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_13"
+                android:layout_below="@+id/linear_12"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="13:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour13"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_14"
+                android:layout_below="@+id/linear_13"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="14:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour14"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_15"
+                android:layout_below="@+id/linear_14"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="15:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour15"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_16"
+                android:layout_below="@+id/linear_15"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="15:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour16"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_17"
+                android:layout_below="@+id/linear_16"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="17:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour17"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_18"
+                android:layout_below="@+id/linear_17"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="18:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour18"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_19"
+                android:layout_below="@+id/linear_18"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="19:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour19"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_20"
+                android:layout_below="@+id/linear_19"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="20:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour20"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_21"
+                android:layout_below="@+id/linear_20"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="21:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour21"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_22"
+                android:layout_below="@+id/linear_21"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="22:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour22"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_23"
+                android:layout_below="@+id/linear_22"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="23:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour23"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_0"
+                android:layout_below="@+id/linear_23"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="00:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour0"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_1"
+                android:layout_below="@+id/linear_0"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="01:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_2"
+                android:layout_below="@+id/linear_1"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="02:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_3"
+                android:layout_below="@+id/linear_2"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="03:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour3"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_4"
+                android:layout_below="@+id/linear_3"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="04:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour4"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_5"
+                android:layout_below="@+id/linear_4"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="05:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour5"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_6"
+                android:layout_below="@+id/linear_5"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="06:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour6"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:padding="20dp"
+                android:id="@+id/linear_7"
+                android:layout_below="@+id/linear_6"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/hour_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500"
+                    android:text="07:00" />
+
+                <EditText
+                    android:id="@+id/edittext_hour7"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/blue_500" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

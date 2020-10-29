@@ -13,12 +13,13 @@ public class MyListAdapter extends ArrayAdapter<String> {
     private final Activity context;
     private final String[] maintitle;
     private final String[] subtitle;
+    private final String[] dates;
     private final Integer[] imgid;
     private final Integer[] stars;
 
     public MyListAdapter(
             Activity context, String[] maintitle, String[] subtitle, Integer[] imgid,
-            Integer[] stars) {
+            Integer[] stars, String[] dates) {
         super(context, R.layout.mylist, maintitle);
         // TODO Auto-generated constructor stub
 
@@ -27,6 +28,7 @@ public class MyListAdapter extends ArrayAdapter<String> {
         this.subtitle = subtitle;
         this.imgid = imgid;
         this.stars = stars;
+        this.dates = dates;
     }
 
     public View getView(int position, View view, ViewGroup parent) {
@@ -37,12 +39,17 @@ public class MyListAdapter extends ArrayAdapter<String> {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
         TextView subtitleText = (TextView) rowView.findViewById(R.id.subtitle);
         ImageView rating = (ImageView) rowView.findViewById(R.id.rating);
+        TextView datesText = (TextView) rowView.findViewById(R.id.date);
 
         titleText.setText(maintitle[position]);
         imageView.setImageResource(imgid[position]);
         subtitleText.setText(subtitle[position]);
         rating.setImageResource(stars[position]);
 
+        if (dates != null) {
+            datesText.setVisibility(View.VISIBLE);
+            datesText.setText(dates[position]);
+        }
         return rowView;
     };
 }

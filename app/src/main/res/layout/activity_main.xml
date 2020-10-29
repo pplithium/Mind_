@@ -78,7 +78,7 @@
                         android:layout_margin="2dp"
                         android:layout_marginLeft="20dp"
                         android:gravity="center"
-                        android:text="My Calendar"
+                        android:text="My Heath Calendar"
                         android:textColor="@color/blue_500"
                         android:textSize="20dp"
                         android:textStyle="bold" />
@@ -252,77 +252,6 @@
                         android:layout_marginLeft="20dp"
                         android:gravity="center"
                         android:text="Tips and Suggestions"
-                        android:textColor="@color/blue_500"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="2dp"
-                    android:layout_weight="1"
-                    android:onClick="launchFriendsActivity">
-
-                    <ImageView
-                        android:id="@+id/find_friends"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:layout_centerHorizontal="true"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/friends" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/find_friends"
-                        android:layout_alignLeft="@id/find_friends"
-                        android:layout_alignRight="@id/find_friends"
-                        android:layout_centerHorizontal="true"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="center"
-                        android:text="Find Friends For Activities"
-                        android:textColor="@color/blue_500"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_margin="2dp"
-                    android:layout_weight="1"
-                    android:onClick="launchSleepActivity">
-
-                    <ImageView
-                        android:id="@+id/track_sleep"
-                        android:layout_width="130dp"
-                        android:layout_height="130dp"
-                        android:layout_centerHorizontal="true"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/sleep" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/track_sleep"
-                        android:layout_alignLeft="@id/track_sleep"
-                        android:layout_alignRight="@id/track_sleep"
-                        android:layout_centerHorizontal="true"
-                        android:layout_margin="2dp"
-                        android:layout_marginLeft="20dp"
-                        android:gravity="center"
-                        android:text="Track My Sleep"
                         android:textColor="@color/blue_500"
                         android:textSize="20dp"
                         android:textStyle="bold" />

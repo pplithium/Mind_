@@ -20,4 +20,9 @@ public class App extends Application {
     public static void notImplementedCodeToast() {
         Toast.makeText(instance, "This code is not yet implemented.", Toast.LENGTH_SHORT).show();
     }
+
+    public static void showToast(String msg) {
+        Toast.makeText(instance, msg, Toast.LENGTH_SHORT).show();
+    }
+
 }

@@ -1,10 +1,5 @@
 package ck.no.mind.activities;
 
-/**
- * TODO
- * Add a real data from the real API. Currently not available to show all the psycologists in the
- * city.
- */
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +9,11 @@ import ck.no.mind.App;
 import ck.no.mind.R;
 import ck.no.mind.helpers.MyListAdapter;
 
+/**
+ * TODO
+ * Add a real data from the real API. Currently not available to show all the psycologists in the
+ * city.
+ */
 public class PsycologistsActivity extends AppCompatActivity {
     ListView list;
 
@@ -26,6 +26,8 @@ public class PsycologistsActivity extends AppCompatActivity {
             "Clinical psychology", "Cognitive and perceptual psychology",  "Social psychology",
             "Clinical psychology", "Industrial/organizational psychology",
     };
+
+    String[] dates = null;
 
     Integer[] imgid = {
             R.drawable.psycologist_1, R.drawable.psycologist_2, R.drawable.psycologist_3,
@@ -41,28 +43,32 @@ public class PsycologistsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_psycologists);
 
-        MyListAdapter adapter = new MyListAdapter(this, maintitle, subtitle, imgid, stars);
+        MyListAdapter adapter = new MyListAdapter(this, maintitle, subtitle, imgid, stars, dates);
         list = (ListView) findViewById(R.id.list);
         list.setAdapter(adapter);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // TODO Auto-generated method stub
-                if (position == 0) {
-                    App.notImplementedCodeToast();
-                }
 
-                else if (position == 1) {
-                    App.notImplementedCodeToast();
-                }
-
-                else if (position == 2) {
-                    App.notImplementedCodeToast();
-                } else if (position == 3) {
-                    App.notImplementedCodeToast();
-                } else if (position == 4) {
-                    App.notImplementedCodeToast();
+                switch (position) {
+                    case 0:
+                        App.notImplementedCodeToast();
+                        break;
+                    case 1:
+                        App.notImplementedCodeToast();
+                        break;
+                    case 2:
+                        App.notImplementedCodeToast();
+                        break;
+                    case 3:
+                        App.notImplementedCodeToast();
+                        break;
+                    case 4:
+                        App.notImplementedCodeToast();
+                        break;
+                    default:
+                        break;
                 }
             }
         });
