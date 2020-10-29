@@ -1,14 +1,19 @@
 package ck.no.mind.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static ck.no.mind.activities.SecondAssessmentActivity.ASSESMENT2_TABLE;
 
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-
+import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import ck.no.mind.R;
+import ck.no.mind.database.DBHelper;
+import ck.no.mind.helpers.Triplet;
 import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -21,7 +26,6 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -31,13 +35,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
-import ck.no.mind.R;
-import ck.no.mind.database.DBHelper;
-
-import static ck.no.mind.activities.SecondAssessmentActivity.ASSESMENT2_TABLE;
-
 public class AnalysisActivity extends AppCompatActivity {
-
     GraphView emotionsGraph;
     CheckBox happinessCheckbox;
     CheckBox exCheckBox;
@@ -45,6 +43,8 @@ public class AnalysisActivity extends AppCompatActivity {
     CheckBox anxCheckBox;
     CheckBox angCheckBox;
     DBHelper dbHelperAssesment2;
+
+    TextView generalFeedbackText;
 
     String happiness = "happiness";
     String ex = "ex";
@@ -58,21 +58,14 @@ public class AnalysisActivity extends AppCompatActivity {
     List<String> keysForLastWeek = new ArrayList<>();
     Map<String, Map<String, String>> allAssesment2Data = new HashMap<>();
 
-    Map<String, Integer> colors = Map.of(
-            happiness, Color.GREEN,
-            ex, Color.CYAN,
-            sad, Color.YELLOW,
-            anx, Color.GRAY,
-            ang, Color.RED
-    );
+    Map<String, Triplet<String, Integer, Float>> simpleAnalysisMap = new HashMap<>();
+
+    Map<String, Integer> colors =
+            Map.of(happiness, Color.GREEN, ex, Color.CYAN, sad, Color.YELLOW, anx, Color.GRAY, ang,
+                    Color.RED);
 
     Map<String, String> legendEntries = Map.of(
-            happiness, "Happiness",
-            ex, "Excitement",
-            sad, "Sadness",
-            anx, "Anxiety",
-            ang, "Anger"
-    );
+            happiness, "Happiness", ex, "Excitement", sad, "Sadness", anx, "Anxiety", ang, "Anger");
 
     @Override
     protected void onResume() {
@@ -138,16 +131,15 @@ public class AnalysisActivity extends AppCompatActivity {
             year = currentYear - 1;
         }
 
-        for (int i = 0 ; i < 7 ; i++) {
+        for (int i = 0; i < 7; i++) {
             int dayOfMonth = currentDayOfMonth - i;
             keysForLastWeek.add("q" + dayOfMonth + month + year);
         }
     }
 
-
-
     private void initializeData() {
         allAssesment2Data = dbHelperAssesment2.getAllAssesment2Data();
+        simpleAnalysisOfData();
     }
 
     private void setCheckListener(CheckBox checkBox, String type) {
@@ -191,7 +183,6 @@ public class AnalysisActivity extends AppCompatActivity {
     }
 
     private void updatePieChart() {
-
         Map<String, Float> values = calculateEmotionValues();
 
         List<PieEntry> pieEntires = new ArrayList<>();
@@ -200,23 +191,23 @@ public class AnalysisActivity extends AppCompatActivity {
             pieEntires.add(new PieEntry(values.get(key), legendEntries.get(key)));
         }
 
-        PieDataSet dataSet = new PieDataSet(pieEntires,"");
-        dataSet.setColors(new int[] { colors.get(happiness), colors.get(ex), colors.get(sad), colors.get(anx), colors.get(ang) });
+        PieDataSet dataSet = new PieDataSet(pieEntires, "");
+        dataSet.setColors(new int[] {colors.get(happiness), colors.get(ex), colors.get(sad),
+                colors.get(anx), colors.get(ang)});
         PieData data = new PieData(dataSet);
-        //Get the chart
+        // Get the chart
         pieChart.setData(data);
 
         pieChart.setEntryLabelTextSize(15);
         pieChart.setHoleRadius(75);
         pieChart.getDescription().setEnabled(false);
         pieChart.setDrawSliceText(false);
-        //legend attributes
+        // legend attributes
         Legend legend = pieChart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setTextSize(10);
         legend.setFormSize(20);
         legend.setFormToTextSpace(2);
-
     }
 
     private void updateGraphWithData() {
@@ -227,7 +218,6 @@ public class AnalysisActivity extends AppCompatActivity {
 
         List<String> sortedKeys = keysForLastWeek.stream().sorted().collect(Collectors.toList());
         for (Map.Entry<String, Boolean> entry : checkBoxesState.entrySet()) {
-
             if (entry.getValue()) {
                 String type = entry.getKey();
                 int day = 0;
@@ -265,5 +255,81 @@ public class AnalysisActivity extends AppCompatActivity {
                 emotionsGraph.addSeries(series);
             }
         }
+    }
+
+    private void simpleAnalysisOfData() {
+        generalFeedbackText = findViewById(R.id.analysis_text);
+        // clean-up and collect the data
+        for (Map.Entry<String, Map<String, String>> entry : allAssesment2Data.entrySet()) {
+            if (entry.getKey().startsWith("details")) {
+                for (Map.Entry<String, String> innerEntry : entry.getValue().entrySet()) {
+                    if (innerEntry.getValue() != null && !"".equals(innerEntry.getValue())) {
+                        String activity = innerEntry.getValue();
+                        String rating = allAssesment2Data.get(entry.getKey().replace("details", ""))
+                                .get(innerEntry.getKey());
+                        Log.d("graphdebug", "test: " + innerEntry.getKey());
+                        Triplet<String, Integer, Float> previousRating =
+                                simpleAnalysisMap.get(activity);
+
+                        if (previousRating != null) {
+                            simpleAnalysisMap.remove(activity);
+                            Triplet<String, Integer, Float> newRating =
+                                    new Triplet<String, Integer, Float>(
+                                            innerEntry.getKey(), previousRating.second + 1,
+                                            previousRating.third + Float.valueOf(rating));
+                            simpleAnalysisMap.put(activity, newRating);
+                        } else {
+                            Triplet<String, Integer, Float> newRating =
+                                    new Triplet<String, Integer, Float>(
+                                            innerEntry.getKey(), 1, Float.valueOf(rating));
+                            simpleAnalysisMap.put(activity, newRating);
+                        }
+                    }
+                }
+            }
+        }
+
+        // compute and get average values
+        // <activity , <emotion, rating>>
+        Map<String, Pair<String, Float>> averageValues = new HashMap<>();
+        for (Map.Entry<String, Triplet<String, Integer, Float>> entry :
+                simpleAnalysisMap.entrySet()) {
+            Float averageValue = entry.getValue().third / entry.getValue().second;
+            Pair<String, Float> pair = new Pair<>(entry.getValue().first, averageValue);
+            averageValues.put(entry.getKey(), pair);
+        }
+
+        // populate value to text
+        for (Map.Entry<String, Pair<String, Float>> entry : averageValues.entrySet()) {
+            if (entry.getValue().second > 2.5F) {
+                String emotion;
+                switch (entry.getValue().first) {
+                    case "happiness":
+                        emotion = "happy";
+                        break;
+                    case "ex":
+                        emotion = "excited";
+                        break;
+                    case "sad":
+                        emotion = "sad";
+                        break;
+                    case "anx":
+                        emotion = "anxious";
+                        break;
+                    case "ang":
+                        emotion = "angry";
+                    default:
+                        emotion = "happy";
+                        break;
+                }
+
+                String addedText = "\n** " + entry.getKey() + " makes you " + emotion;
+                generalFeedbackText.setText(generalFeedbackText.getText().toString() + addedText);
+            }
+        }
+
+        generalFeedbackText.setText(
+                generalFeedbackText.getText().toString()
+                        + "\n Please do more activities makes you happy and excited!");
     }
 }

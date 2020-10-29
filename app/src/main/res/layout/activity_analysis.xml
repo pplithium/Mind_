@@ -81,6 +81,20 @@
                 android:layout_width="350dp"
                 android:layout_height="350dp" />
 
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="Analysis of Data"/>
+
+            <TextView
+                android:layout_margin="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/analysis_text"
+                android:layout_marginTop="10dp"/>
+
         </LinearLayout>
 
     </RelativeLayout>
