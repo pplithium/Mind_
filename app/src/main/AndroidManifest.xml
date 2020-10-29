@@ -10,7 +10,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mind">
-        <activity android:name=".activities.SecondAssessmentActivity"></activity>
+        <activity android:name=".activities.AnalysisActivity"></activity>
+        <activity android:name=".activities.SecondAssessmentActivity" />
         <activity android:name=".activities.AssessmentActivity" />
         <activity android:name=".activities.HealthCalendarActivity" />
         <activity android:name=".activities.PsycologistsActivity" />
@@ -29,10 +30,10 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
     </application>
-    
-    <uses-permission android:name="android.permission.BODY_SENSORS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="aandroid.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
 
 </manifest>

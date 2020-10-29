@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void launchAnalysisActivity(View v) {
-        App.notImplementedCodeToast();
+        Intent intent = new Intent(this, AnalysisActivity.class);
+        startActivity(intent);
     }
     public void launchTipsActivity(View v) {
         App.notImplementedCodeToast();

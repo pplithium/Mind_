@@ -9,6 +9,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +21,14 @@ import java.util.Map;
  */
 public class DBHelper extends SQLiteOpenHelper {
     private String DATABASE_NAME;
+
+    String date = "date";
+    String happiness = "happiness";
+    String ex = "ex";
+    String sad = "sad";
+    String anx = "anx";
+    String ang = "ang";
+
     // database coloumns
     public static final String[] ASSESMENT1_HOUR_COLOUMS = {
             "HOUR_0",  "HOUR_1",  "HOUR_2",  "HOUR_3",  "HOUR_4",  "HOUR_5",  "HOUR_6",  "HOUR_7",
@@ -82,12 +91,83 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public Map<String, Map<String, String>> getAllAssesment2Data() {
+        Map<String, Map<String, String>> data = new HashMap<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor res =
+                db.rawQuery("select * from " + DATABASE_NAME, null);
+
+        if (res != null && res.moveToFirst()) {
+            String dateString = "";
+
+            while (!res.isAfterLast()) {
+
+                Map<String, String> row = new HashMap<>();
+
+                int index = res.getColumnIndex(date);
+
+                if (index >= 0) {
+                    dateString = res.getString(index);
+                }
+
+                index = res.getColumnIndex(happiness);
+
+                if (index < 0) {
+                    row.put(happiness, "");
+                } else {
+                    row.put(happiness, res.getString(index));
+                }
+
+                index = res.getColumnIndex(ex);
+
+                if (index < 0) {
+                    row.put(ex, "");
+                } else {
+                    row.put(ex, res.getString(index));
+                }
+
+                index = res.getColumnIndex(sad);
+
+                if (index < 0) {
+                    row.put(sad, "");
+                } else {
+                    row.put(sad, res.getString(index));
+                }
+
+                index = res.getColumnIndex(anx);
+
+                if (index < 0) {
+                    row.put(anx, "");
+                } else {
+                    row.put(anx, res.getString(index));
+                }
+
+                index = res.getColumnIndex(ang);
+
+                if (index < 0) {
+                    row.put(ang, "");
+                } else {
+                    row.put(ang, res.getString(index));
+                }
+
+                data.put(dateString, row);
+
+                res.moveToNext();
+            }
+
+        }
+
+        res.close();
+        db.close();
+
+
+        return data;
+
+    }
+
     public Map<String, String> getAssesment2Data(String date) {
-        String happiness = "happiness";
-        String ex = "ex";
-        String sad = "sad";
-        String anx = "anx";
-        String ang = "ang";
 
         Map<String, String> data = new HashMap<>();
 
