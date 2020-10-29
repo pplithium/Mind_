@@ -5,7 +5,6 @@ import static ck.no.mind.activities.SecondAssessmentActivity.ASSESMENT2_TABLE;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Pair;
-
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -208,14 +207,13 @@ public class AnalysisActivity extends AppCompatActivity {
         updateCheckBoxState();
         emotionsGraph.removeAllSeries();
 
-        DataPoint[] dataPoints = new DataPoint[7];
+        List<DataPoint> dataPoints = new ArrayList<>();
 
         List<String> sortedKeys = keysForLastWeek.stream().sorted().collect(Collectors.toList());
         for (Map.Entry<String, Boolean> entry : checkBoxesState.entrySet()) {
             if (entry.getValue()) {
                 String type = entry.getKey();
                 int day = 0;
-                int i = 0;
                 for (String key : sortedKeys) {
                     Map<String, String> dataForADay = allAssesment2Data.get(key);
                     if (dataForADay == null) {
@@ -226,8 +224,7 @@ public class AnalysisActivity extends AppCompatActivity {
                         continue;
                     }
 
-                    dataPoints[i] = new DataPoint(day, Float.parseFloat(rating));
-                    i++;
+                    dataPoints.add(new DataPoint(day, Float.parseFloat(rating)));
                     day++;
                 }
 
@@ -243,7 +240,9 @@ public class AnalysisActivity extends AppCompatActivity {
                     return;
                 }
 
-                LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPoints);
+                DataPoint[] dataPointsArray = dataPoints.toArray(new DataPoint[dataPoints.size()]);
+
+                LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPointsArray);
 
                 series.setColor(colors.get(type));
                 emotionsGraph.addSeries(series);
