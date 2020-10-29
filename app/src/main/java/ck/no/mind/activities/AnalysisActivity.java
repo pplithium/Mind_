@@ -242,6 +242,8 @@ public class AnalysisActivity extends AppCompatActivity {
 
                 DataPoint[] dataPointsArray = dataPoints.toArray(new DataPoint[dataPoints.size()]);
 
+                dataPoints.clear();
+
                 LineGraphSeries<DataPoint> series = new LineGraphSeries<>(dataPointsArray);
 
                 series.setColor(colors.get(type));
