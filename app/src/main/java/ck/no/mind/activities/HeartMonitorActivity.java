@@ -13,14 +13,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
-import com.airbnb.lottie.LottieAnimationView;
-
 import ck.no.mind.R;
-
+import com.airbnb.lottie.LottieAnimationView;
 
 /**
  * This activity will use sensors to monitor user's heart rate.
@@ -137,7 +133,7 @@ public class HeartMonitorActivity extends AppCompatActivity implements SensorEve
 
     private void requestPermissionAndWait() {
         ActivityCompat.requestPermissions(
-                HeartMonitorActivity.this, new String[]{Manifest.permission.BODY_SENSORS}, 1);
+                HeartMonitorActivity.this, new String[] {Manifest.permission.BODY_SENSORS}, 1);
     }
 
     // watch HEART_RATE_COUNT
@@ -198,7 +194,6 @@ public class HeartMonitorActivity extends AppCompatActivity implements SensorEve
                 });
             }
         });
-
     }
 
     private void saveHeartrate() {
@@ -212,7 +207,6 @@ public class HeartMonitorActivity extends AppCompatActivity implements SensorEve
     private void reportAllData() {
         // TODO
     }
-
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {

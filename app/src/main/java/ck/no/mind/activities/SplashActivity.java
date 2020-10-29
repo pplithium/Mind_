@@ -3,12 +3,9 @@ package ck.no.mind.activities;
 import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.airbnb.lottie.LottieAnimationView;
-
 import ck.no.mind.R;
+import com.airbnb.lottie.LottieAnimationView;
 
 /**
  * intro

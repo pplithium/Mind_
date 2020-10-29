@@ -12,8 +12,8 @@ import android.widget.RatingBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import ck.no.mind.R;
-import ck.no.mind.helpers.window.MindWindowCallback;
 import ck.no.mind.database.DBHelper;
+import ck.no.mind.helpers.window.MindWindowCallback;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -89,12 +89,12 @@ public class SecondAssessmentActivity extends AppCompatActivity {
     private void setClickToRedirectDialog(Button button, String type) {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View view) {
-
                 // save data not to miss entered value after details button clicked
                 // window callback might refresh this data after if it hasn't been saved
                 saveAllData(
                         dateAsString, ratingBarHappiness.getRating(), ratingBarEx.getRating(),
-                        ratingBarSad.getRating(), ratingBarAnx.getRating(), ratingBarAng.getRating());
+                        ratingBarSad.getRating(), ratingBarAnx.getRating(),
+                        ratingBarAng.getRating());
 
                 final AlertDialog dialogBuilder = new AlertDialog.Builder(context).create();
                 LayoutInflater inflater = getLayoutInflater();

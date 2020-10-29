@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import ck.no.mind.App;
 import ck.no.mind.R;
 
-
 /**
  * main screen
  *

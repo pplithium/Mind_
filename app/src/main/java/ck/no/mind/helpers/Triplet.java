@@ -1,10 +1,5 @@
 package ck.no.mind.helpers;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 // Triplet class
 public class Triplet<U, V, T> {
     public final U first; // first field of a Triplet

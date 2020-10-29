@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
-import android.util.Log;
-
 
 /**
  * Database for events,
@@ -15,8 +13,7 @@ import android.util.Log;
  * @warning UNUSED FOR NOW
  */
 public class DatabaseTable {
-
-    //The columns we'll include in the dictionary table
+    // The columns we'll include in the dictionary table
     public static final String COL_LAT = "LAT";
     public static final String COL_LONG = "LONG";
     private static final String TAG = "EventBrowserDatabase";
@@ -33,7 +30,7 @@ public class DatabaseTable {
     // Following two methods searches for the query
     public Cursor getLocationMatches(String query, String[] columns) {
         String selection = COL_LAT + " MATCH ?";
-        String[] selectionArgs = new String[]{query + "*"};
+        String[] selectionArgs = new String[] {query + "*"};
 
         return query(selection, selectionArgs, columns);
     }
@@ -43,8 +40,9 @@ public class DatabaseTable {
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();
         builder.setTables(FTS_VIRTUAL_TABLE);
 
-        Cursor cursor = builder.query(mDatabaseOpenHelper.getReadableDatabase(),
-                columns, selection, selectionArgs, null, null, null);
+        Cursor cursor = builder.query(
+                mDatabaseOpenHelper.getReadableDatabase(), columns, selection, selectionArgs, null,
+                null, null);
 
         if (cursor == null) {
             return null;
@@ -56,11 +54,8 @@ public class DatabaseTable {
     }
 
     private static class DatabaseOpenHelper extends SQLiteOpenHelper {
-
         private static final String FTS_TABLE_CREATE =
-                "CREATE VIRTUAL TABLE " + FTS_VIRTUAL_TABLE +
-                        " USING fts3 (" +
-                        COL_LAT + ")";
+                "CREATE VIRTUAL TABLE " + FTS_VIRTUAL_TABLE + " USING fts3 (" + COL_LAT + ")";
         private final Context mHelperContext;
         private SQLiteDatabase mDatabase;
 
@@ -77,8 +72,6 @@ public class DatabaseTable {
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            Log.w(TAG, "Upgrading database from version " + oldVersion + " to "
-                    + newVersion + ", which will destroy all old data");
             db.execSQL("DROP TABLE IF EXISTS " + FTS_VIRTUAL_TABLE);
             onCreate(db);
         }

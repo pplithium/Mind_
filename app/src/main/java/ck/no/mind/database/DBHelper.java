@@ -9,11 +9,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 /**
  * Database Helper class for tracking daily routine, feelings, and cause of the feelings
@@ -43,7 +40,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
         // Assessment activity
         if (DATABASE_NAME.equals(ASSESMENT1_TABLE)) {
             String databaseCommand = "create table " + DATABASE_NAME + " "
@@ -96,14 +92,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor res =
-                db.rawQuery("select * from " + DATABASE_NAME, null);
+        Cursor res = db.rawQuery("select * from " + DATABASE_NAME, null);
 
         if (res != null && res.moveToFirst()) {
             String dateString = "";
 
             while (!res.isAfterLast()) {
-
                 Map<String, String> row = new HashMap<>();
 
                 int index = res.getColumnIndex(date);
@@ -156,19 +150,15 @@ public class DBHelper extends SQLiteOpenHelper {
 
                 res.moveToNext();
             }
-
         }
 
         res.close();
         db.close();
 
-
         return data;
-
     }
 
     public Map<String, String> getAssesment2Data(String date) {
-
         Map<String, String> data = new HashMap<>();
 
         SQLiteDatabase db = this.getReadableDatabase();

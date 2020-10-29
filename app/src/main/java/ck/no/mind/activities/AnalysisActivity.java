@@ -4,9 +4,8 @@ import static ck.no.mind.activities.SecondAssessmentActivity.ASSESMENT2_TABLE;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
-import android.view.View;
+
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
@@ -14,15 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import ck.no.mind.R;
 import ck.no.mind.database.DBHelper;
 import ck.no.mind.helpers.Triplet;
-import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.LegendEntry;
-import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -32,7 +27,6 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class AnalysisActivity extends AppCompatActivity {
@@ -267,7 +261,6 @@ public class AnalysisActivity extends AppCompatActivity {
                         String activity = innerEntry.getValue();
                         String rating = allAssesment2Data.get(entry.getKey().replace("details", ""))
                                 .get(innerEntry.getKey());
-                        Log.d("graphdebug", "test: " + innerEntry.getKey());
                         Triplet<String, Integer, Float> previousRating =
                                 simpleAnalysisMap.get(activity);
 
