@@ -8,6 +8,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.util.Log;
 
+
+/**
+ * Database for events,
+ *
+ * @warning UNUSED FOR NOW
+ */
 public class DatabaseTable {
 
     //The columns we'll include in the dictionary table

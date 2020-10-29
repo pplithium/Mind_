@@ -21,6 +21,13 @@ import com.airbnb.lottie.LottieAnimationView;
 
 import ck.no.mind.R;
 
+
+/**
+ * This activity will use sensors to monitor user's heart rate.
+ *
+ * TODO: Build an overall graph of the data
+ *
+ */
 public class HeartMonitorActivity extends AppCompatActivity implements SensorEventListener {
     final static int TOTAL_MEASUREMENT_COUNT = 1;
     static Sensor heartSensor;

@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import ck.no.mind.R;
 
+/**
+ * ListAdapter class for showing listView for psychologists and events
+ *
+ */
 public class MyListAdapter extends ArrayAdapter<String> {
     private final Activity context;
     private final String[] maintitle;

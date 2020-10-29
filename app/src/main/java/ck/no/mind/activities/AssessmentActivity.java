@@ -1,13 +1,9 @@
 package ck.no.mind.activities;
 
-import static ck.no.mind.database.DBHelper.ASSESMENT1_HOUR_COLOUMS;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -15,9 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import ck.no.mind.App;
 import ck.no.mind.R;
 import ck.no.mind.database.DBHelper;
-import org.w3c.dom.Text;
 
-public class AssesmentActivity extends AppCompatActivity {
+/**
+ * Get daily routine data from the user,
+ * save it to the database.
+ *
+ * This assessment is similar to a calendar
+ */
+public class AssessmentActivity extends AppCompatActivity {
     public static final String ASSESMENT1_TABLE = "ASSESMENT1_TABLE";
     public static final int NUMBER_OF_HOURS = 24;
     private static String dateAsString = null;
@@ -179,7 +180,7 @@ public class AssesmentActivity extends AppCompatActivity {
     }
 
     private void launchSecondAssestment() {
-        Intent intent = new Intent(this, SecondAssesmentActivity.class);
+        Intent intent = new Intent(this, SecondAssessmentActivity.class);
         intent.putExtra("date", dateAsString);
         intent.putExtra("read_only", readOnly);
         startActivity(intent);

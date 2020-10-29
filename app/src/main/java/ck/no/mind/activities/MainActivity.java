@@ -10,6 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import ck.no.mind.App;
 import ck.no.mind.R;
 
+
+/**
+ * main screen
+ *
+ */
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         animateBackground();
     }
 
+    // animation to give a calm atmosphere, background photo constantly zooming in and out slowly
     public void animateBackground() {
         final ImageView img = (ImageView) findViewById(R.id.main);
         final Animation aniSlideZoomOut =

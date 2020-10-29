@@ -1,31 +1,27 @@
 package ck.no.mind.activities;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
-
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import ck.no.mind.R;
+import ck.no.mind.helpers.window.MindWindowCallback;
+import ck.no.mind.database.DBHelper;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
-import ck.no.mind.R;
-import ck.no.mind.activities.window.MindWindowCallback;
-import ck.no.mind.database.DBHelper;
-
-public class SecondAssesmentActivity extends AppCompatActivity {
-
+/**
+ * Activity to asses how happy the user felt during the day,
+ * get more input regarding what made them feel that.
+ */
+public class SecondAssessmentActivity extends AppCompatActivity {
     public static final String ASSESMENT2_TABLE = "ASSESMENT2_TABLE";
 
     private String dateAsString;
@@ -81,24 +77,40 @@ public class SecondAssesmentActivity extends AppCompatActivity {
         setClickToRedirectDialog(sadDetails, "sad");
 
         Button anxDetails = findViewById(R.id.anx_button_details);
-        setClickToRedirectDialog(anxDetails,"anx" );
+        setClickToRedirectDialog(anxDetails, "anx");
 
         Button angDetails = findViewById(R.id.ang_button_details);
-        setClickToRedirectDialog(angDetails,"ang" );
+        setClickToRedirectDialog(angDetails, "ang");
 
         getWindow().setCallback(new MindWindowCallback(this, getWindow().getCallback()));
-
     }
 
+    // set click listener to details buttons for opening related dialog
     private void setClickToRedirectDialog(Button button, String type) {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(final View view) {
+
+                // save data not to miss entered value after details button clicked
+                // window callback might refresh this data after if it hasn't been saved
+                saveAllData(
+                        dateAsString, ratingBarHappiness.getRating(), ratingBarEx.getRating(),
+                        ratingBarSad.getRating(), ratingBarAnx.getRating(), ratingBarAng.getRating());
 
                 final AlertDialog dialogBuilder = new AlertDialog.Builder(context).create();
                 LayoutInflater inflater = getLayoutInflater();
                 View dialogView = inflater.inflate(R.layout.details_dialog_layout, null);
                 dialogBuilder.setView(dialogView);
                 EditText editText = dialogView.findViewById(R.id.details_edittext);
+
+                // set edittext to textview style if it is readOnly mode
+                if (readOnly) {
+                    editText.setFocusable(false);
+                    editText.setEnabled(false);
+                    editText.setCursorVisible(false);
+                    editText.setKeyListener(null);
+                    editText.setBackgroundColor(Color.TRANSPARENT);
+                }
+
                 Button okButton = dialogView.findViewById(R.id.all_ok_button);
 
                 okButton.setOnClickListener(new View.OnClickListener() {
@@ -124,35 +136,34 @@ public class SecondAssesmentActivity extends AppCompatActivity {
         });
     }
 
+    // put the data into the global map, and save it to database
     public void saveDetailsData(String data, String type) {
         detailsData.put(type, data);
+        saveDetailsData("details" + dateAsString);
     }
 
+    // trigger refresh o the data from database,
+    // this is done for dialog need to refresh itself for the new update after it's closed
     public void triggerDataRefresh() {
-        if (!readOnly) {
-            saveAllData(dateAsString, ratingBarHappiness.getRating(), ratingBarEx.getRating(),
-                    ratingBarSad.getRating(), ratingBarAnx.getRating(), ratingBarAng.getRating());
-
-            saveDetailsData("details" + dateAsString);
-        }
-
         initializeData();
     }
 
+    // save the data even if the user did not press finish button
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         if (!readOnly) {
-            saveAllData(dateAsString, ratingBarHappiness.getRating(), ratingBarEx.getRating(),
+            saveAllData(
+                    dateAsString, ratingBarHappiness.getRating(), ratingBarEx.getRating(),
                     ratingBarSad.getRating(), ratingBarAnx.getRating(), ratingBarAng.getRating());
-
-            saveDetailsData("details" + dateAsString);
         }
     }
 
+    // initialize the data from database
     private void initializeData() {
         dateAsString = getIntent().getStringExtra("date");
-
+        detailsData = dbHelper.getAssesment2Data("details" + dateAsString);
+        ratingData = dbHelper.getAssesment2Data(dateAsString);
         try {
             ratingBarHappiness.setRating(Float.parseFloat(ratingData.get(happiness)));
             ratingBarEx.setRating(Float.parseFloat(ratingData.get(ex)));
@@ -162,13 +173,14 @@ public class SecondAssesmentActivity extends AppCompatActivity {
         } catch (Exception e) {
             // ignore
         }
-
-        detailsData = dbHelper.getAssesment2Data("details" + dateAsString);
     }
 
-    private void saveAllData(String dateAsString, float happiness, float exc, float sad, float anx, float ang) {
-        dbHelper.insertAssesment2Data(dateAsString, String.valueOf(happiness),
-                String.valueOf(exc), String.valueOf(sad), String.valueOf(anx), String.valueOf(ang));
+    private void saveAllData(
+            String dateAsString, float happiness, float exc, float sad, float anx, float ang) {
+        dbHelper.insertAssesment2Data(
+                dateAsString, String.valueOf(happiness), String.valueOf(exc), String.valueOf(sad),
+                String.valueOf(anx), String.valueOf(ang));
+        saveDetailsData("details" + dateAsString);
     }
 
     private void saveDetailsData(String dateAsString) {
@@ -177,12 +189,14 @@ public class SecondAssesmentActivity extends AppCompatActivity {
         String detailsSad = detailsData.get("sad");
         String detailsAnx = detailsData.get("anx");
         String detailsAng = detailsData.get("ang");
-        dbHelper.insertAssesment2Data(dateAsString, detailsHappiness, detailsEx, detailsSad, detailsAnx, detailsAng);
+        dbHelper.insertAssesment2Data(
+                dateAsString, detailsHappiness, detailsEx, detailsSad, detailsAnx, detailsAng);
     }
 
     public void finishAssesment(View v) {
         if (!readOnly) {
-            saveAllData(dateAsString, ratingBarHappiness.getRating(), ratingBarEx.getRating(),
+            saveAllData(
+                    dateAsString, ratingBarHappiness.getRating(), ratingBarEx.getRating(),
                     ratingBarSad.getRating(), ratingBarAnx.getRating(), ratingBarAng.getRating());
         }
 

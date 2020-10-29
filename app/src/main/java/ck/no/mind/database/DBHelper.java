@@ -1,20 +1,23 @@
 package ck.no.mind.database;
 
-import static ck.no.mind.activities.AssesmentActivity.ASSESMENT1_TABLE;
-import static ck.no.mind.activities.AssesmentActivity.NUMBER_OF_HOURS;
-import static ck.no.mind.activities.SecondAssesmentActivity.ASSESMENT2_TABLE;
+import static ck.no.mind.activities.AssessmentActivity.ASSESMENT1_TABLE;
+import static ck.no.mind.activities.AssessmentActivity.NUMBER_OF_HOURS;
+import static ck.no.mind.activities.SecondAssessmentActivity.ASSESMENT2_TABLE;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * Database Helper class for tracking daily routine, feelings, and cause of the feelings
+ *
+ */
 public class DBHelper extends SQLiteOpenHelper {
     private String DATABASE_NAME;
     // database coloumns
@@ -31,6 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+        // Assessment activity
         if (DATABASE_NAME.equals(ASSESMENT1_TABLE)) {
             String databaseCommand = "create table " + DATABASE_NAME + " "
                     + "(id integer primary key, date text";
@@ -43,10 +48,11 @@ public class DBHelper extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL(databaseCommand);
         }
 
+        // SecondAssessmentActivity
         if (DATABASE_NAME.equals(ASSESMENT2_TABLE)) {
             String databaseCommand = "create table " + DATABASE_NAME + " "
-                    + "(id integer primary key, date text, happiness text, ex text, " +
-                    "sad text, anx text, ang text)";
+                    + "(id integer primary key, date text, happiness text, ex text, "
+                    + "sad text, anx text, ang text)";
 
             sqLiteDatabase.execSQL(databaseCommand);
         }
@@ -58,9 +64,11 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public void insertAssesment2Data(String date, String happiness,
-                                     String ex, String sad, String anx, String ang) {
+    public void insertAssesment2Data(
+            String date, String happiness, String ex, String sad, String anx, String ang) {
         SQLiteDatabase db = this.getWritableDatabase();
+
+        // delete initial value for this row, it will be renewed
         db.delete(DATABASE_NAME, "date='" + date + "'", null);
 
         ContentValues contentValues = new ContentValues();
@@ -89,7 +97,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 db.rawQuery("select * from " + DATABASE_NAME + " where date='" + date + "'", null);
 
         if (res != null && res.moveToFirst()) {
-
             int index = res.getColumnIndex(happiness);
 
             if (index < 0) {

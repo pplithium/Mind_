@@ -1,6 +1,5 @@
-package ck.no.mind.activities.window;
+package ck.no.mind.helpers.window;
 
-import android.app.Activity;
 import android.os.Build;
 import android.view.ActionMode;
 import android.view.KeyEvent;
@@ -12,17 +11,20 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import ck.no.mind.activities.SecondAssessmentActivity;
 
-import ck.no.mind.activities.SecondAssesmentActivity;
-
+/**
+ * Used for notifying the focus changes on the activity.
+ * This class will enable saving and retrieving the data on dialog shows and dismisses.
+ *
+ */
 public class MindWindowCallback implements Window.Callback {
-    SecondAssesmentActivity activity = null;
+    SecondAssessmentActivity activity = null;
     Window.Callback oldCallback;
-    public MindWindowCallback(SecondAssesmentActivity activity, Window.Callback oldCallback) {
+    public MindWindowCallback(SecondAssessmentActivity activity, Window.Callback oldCallback) {
         this.activity = activity;
         this.oldCallback = oldCallback;
     }

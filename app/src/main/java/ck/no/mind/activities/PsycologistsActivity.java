@@ -11,8 +11,10 @@ import ck.no.mind.helpers.MyListAdapter;
 
 /**
  * TODO
- * Add a real data from the real API. Currently not available to show all the psycologists in the
+ * Add a real data from the real API. Currently not available to show all the psychologists in the
  * city.
+ *
+ * This activity shows a list of available psychologists close to the user's location.
  */
 public class PsycologistsActivity extends AppCompatActivity {
     ListView list;
@@ -50,20 +52,11 @@ public class PsycologistsActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 switch (position) {
                     case 0:
-                        App.notImplementedCodeToast();
-                        break;
                     case 1:
-                        App.notImplementedCodeToast();
-                        break;
                     case 2:
-                        App.notImplementedCodeToast();
-                        break;
                     case 3:
-                        App.notImplementedCodeToast();
-                        break;
                     case 4:
                         App.notImplementedCodeToast();
                         break;

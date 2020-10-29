@@ -10,8 +10,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mind">
-        <activity android:name=".activities.SecondAssesmentActivity"></activity>
-        <activity android:name=".activities.AssesmentActivity" />
+        <activity android:name=".activities.SecondAssessmentActivity"></activity>
+        <activity android:name=".activities.AssessmentActivity" />
         <activity android:name=".activities.HealthCalendarActivity" />
         <activity android:name=".activities.PsycologistsActivity" />
         <activity android:name=".activities.EventActivity" />

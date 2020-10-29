@@ -10,6 +10,10 @@ import com.airbnb.lottie.LottieAnimationView;
 
 import ck.no.mind.R;
 
+/**
+ * intro
+ *
+ */
 public class SplashActivity extends AppCompatActivity {
     private static float SPEED = 0.6F;
     LottieAnimationView intro;
@@ -47,6 +51,7 @@ public class SplashActivity extends AppCompatActivity {
         });
     }
 
+    // start the original app as soon as the anim finishes
     private void initiateMainActivityAndFinish() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

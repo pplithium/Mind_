@@ -1,21 +1,19 @@
 package ck.no.mind.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CalendarView;
-import android.widget.TextView;
-
-
-import java.util.Calendar;
-
+import androidx.appcompat.app.AppCompatActivity;
 import ck.no.mind.App;
 import ck.no.mind.R;
+import java.util.Calendar;
 
+/**
+ * Calendar activity to choose between the dates, give feedback about the day/hour and read the data
+ * from previous responses.
+ *
+ */
 public class HealthCalendarActivity extends AppCompatActivity {
     CalendarView calendarView;
     int selectedYear = -1;
@@ -39,8 +37,8 @@ public class HealthCalendarActivity extends AppCompatActivity {
         calendarView = findViewById(R.id.calendar);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month,
-                                            int dayOfMonth) {
+            public void onSelectedDayChange(
+                    CalendarView view, int year, int month, int dayOfMonth) {
                 selectedYear = year;
                 selectedMonth = month;
                 selectedDayOfMonth = dayOfMonth;
@@ -61,7 +59,8 @@ public class HealthCalendarActivity extends AppCompatActivity {
             return true;
         }
 
-        if (currentYear == selectedYear && currentMonth == selectedMonth && currentDayOfMonth < selectedDayOfMonth) {
+        if (currentYear == selectedYear && currentMonth == selectedMonth
+                && currentDayOfMonth < selectedDayOfMonth) {
             return true;
         }
 
@@ -69,7 +68,7 @@ public class HealthCalendarActivity extends AppCompatActivity {
     }
 
     private Intent createIntentForSelectedDate() {
-        Intent intent = new Intent(this, AssesmentActivity.class);
+        Intent intent = new Intent(this, AssessmentActivity.class);
 
         if (selectedYear == -1) {
             intent.putExtra("year", currentYear);
@@ -100,5 +99,4 @@ public class HealthCalendarActivity extends AppCompatActivity {
 
         startActivity(createIntentForSelectedDate().putExtra("read_only", true));
     }
-
 }
