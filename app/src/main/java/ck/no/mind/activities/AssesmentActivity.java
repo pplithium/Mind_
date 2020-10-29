@@ -1,24 +1,23 @@
 package ck.no.mind.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static ck.no.mind.database.DBHelper.ASSESMENT1_HOUR_COLOUMS;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
-
+import androidx.appcompat.app.AppCompatActivity;
 import ck.no.mind.App;
 import ck.no.mind.R;
 import ck.no.mind.database.DBHelper;
-
-import static ck.no.mind.database.DBHelper.ASSESMENT1_HOUR_COLOUMS;
+import org.w3c.dom.Text;
 
 public class AssesmentActivity extends AppCompatActivity {
-
     public static final String ASSESMENT1_TABLE = "ASSESMENT1_TABLE";
     public static final int NUMBER_OF_HOURS = 24;
     private static String dateAsString = null;
@@ -26,6 +25,8 @@ public class AssesmentActivity extends AppCompatActivity {
     int year = -1;
     int month = -1;
     int dayOfMonth = -1;
+
+    CalendarView calendarView;
 
     // editTexts by hour
     EditText editText8;
@@ -134,6 +135,15 @@ public class AssesmentActivity extends AppCompatActivity {
         editTexts[22] = editText22;
         editTexts[23] = editText23;
 
+        if (readOnly) {
+            for (EditText editText : editTexts) {
+                editText.setFocusable(false);
+                editText.setEnabled(false);
+                editText.setCursorVisible(false);
+                editText.setKeyListener(null);
+                editText.setBackgroundColor(Color.TRANSPARENT);
+            }
+        }
     }
 
     private void initializeAllHistoricalData() {
@@ -148,7 +158,7 @@ public class AssesmentActivity extends AppCompatActivity {
             return;
         }
 
-        for (int i = 0 ; i < data.length ; i++) {
+        for (int i = 0; i < data.length; i++) {
             editTexts[i].setText(data[i]);
         }
     }
@@ -161,7 +171,7 @@ public class AssesmentActivity extends AppCompatActivity {
 
         String[] data = new String[NUMBER_OF_HOURS];
 
-        for (int i = 0 ; i < editTexts.length ; i++) {
+        for (int i = 0; i < editTexts.length; i++) {
             data[i] = editTexts[i].getText().toString();
         }
 
@@ -170,12 +180,14 @@ public class AssesmentActivity extends AppCompatActivity {
 
     private void launchSecondAssestment() {
         Intent intent = new Intent(this, SecondAssesmentActivity.class);
+        intent.putExtra("date", dateAsString);
+        intent.putExtra("read_only", readOnly);
         startActivity(intent);
         finish();
     }
 
     public void launchSecondAssestmentActivity(View v) {
-        if(!readOnly) {
+        if (!readOnly) {
             saveAllData();
         }
 
