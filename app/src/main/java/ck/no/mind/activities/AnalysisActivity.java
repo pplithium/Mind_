@@ -330,6 +330,6 @@ public class AnalysisActivity extends AppCompatActivity {
 
         generalFeedbackText.setText(
                 generalFeedbackText.getText().toString()
-                        + "\n Please do more activities makes you happy and excited!");
+                        + "\n\n Try to do more activities makes you happy and excited!");
     }
 }
